@@ -13,15 +13,16 @@ const Purchases = () => {
     return (
         <div>
             {purchases.map(elem => (
-                <>
-                <li>{elem.createdAt
-                }</li>
-                <div>
+
+                <div key={elem.id}>
+                    <h2 style={{fontSize:"1rem",margin:"5px"}}>{elem.createdAt}</h2>
+                    <div className="element-products">
                     {elem.cart.products.map(element => (
-                        <Link to={`/Products/${element.id}`}>{element.brand}</Link>
+                        <Link key={element.id} to={`/Products/${element.id}`}>{element.brand}</Link>
                 ))}
                     </div>
-                </>
+                </div>
+                
             ))}
         </div>
     );

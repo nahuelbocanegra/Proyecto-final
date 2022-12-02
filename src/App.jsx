@@ -13,7 +13,7 @@ import NavBar from './componentes/NavBar'
 import LoadingScree from './componentes/LoadingScree'
 import { useSelector } from 'react-redux';
 import ProtectedRoutes from './componentes/ProtectedRoutes'
-
+import Container from 'react-bootstrap/Container';
 function App() {
   const isLoading=useSelector(state=>state.isLoadingSlice)
  
@@ -22,7 +22,7 @@ function App() {
       <HashRouter>
         <NavBar></NavBar>
         {isLoading && <LoadingScree></LoadingScree>}
-
+       <Container className="my-5">
         <Routes>
           <Route path="/" element={<Home></Home>} />
           <Route path="/Login" element={<Login></Login>} />
@@ -31,7 +31,8 @@ function App() {
           <Route element={<ProtectedRoutes></ProtectedRoutes>}>
             <Route path="/Purchases" element={<Purchases></Purchases>} />
           </Route>
-        </Routes>
+          </Routes>
+        </Container>
       </HashRouter>
     </div>
   )
